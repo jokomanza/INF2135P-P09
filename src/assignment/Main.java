@@ -21,19 +21,19 @@ public class Main {
     private static void printKaryawan(Karyawan karyawan) {
         System.out.println("Nama: " + karyawan.getNama());
         System.out.println("NIP: " + karyawan.getNip());
-        System.out.println("Gaji: " + getFormatterCurrency(karyawan.getGaji()));
+        System.out.println("Gaji: " + getFormattedMoney(karyawan.getGaji()));
         System.out.println("Lama Kerja: " + karyawan.getLamaKerja() + " tahun");
-        System.out.println("Bonus: " + getFormatterCurrency(karyawan.calculateBonus()));
+        System.out.println("Bonus: " + getFormattedMoney(karyawan.calculateBonus()));
     }
 
     /**
-     * Format currency to Indonesian Rupiah
+     * Format money to Indonesian Rupiah
      *
-     * @param currency currency
-     * @return formatted currency
+     * @param amount amount
+     * @return formatted money
      */
-    private static String getFormatterCurrency(float currency) {
+    private static String getFormattedMoney(float amount) {
         Locale locale = Locale.of("id", "ID");
-        return NumberFormat.getCurrencyInstance(locale).format(currency);
+        return NumberFormat.getCurrencyInstance(locale).format(amount);
     }
 }
